@@ -5,10 +5,9 @@
 #include "MyVector.hpp"
 #include <iostream>
 #include <stack>
-#include <cmath>
 #include <tuple>
-#include <format>
-#include <cstdlib>
+#include <stdlib.h>
+#include <math.h>
 
 void shuntingYard(MyVector &expr, MyVector &outQueue)
 {
@@ -124,7 +123,7 @@ double countRPN(MyVector &expr)
                         else if (str == MyString("-")) res = a - b;
                         else if (str == MyString("*")) res = a * b;
                         else if (str == MyString("/")) res = checkedDivision(a, b);
-                        else if (str == MyString("^")) res = std::pow(a,b);
+                        else if (str == MyString("^")) res = pow(a,b);
                         else    throw Error("Unknown operator!", Error::Syntax);
                         break;
                     }
@@ -147,25 +146,25 @@ double countRPN(MyVector &expr)
                     auto [a,b] = getTwoTokens();
                     if(a <= 0.f || a == 1.0f) throw Error("log(a,x): not defined for a", Error::Math);
                     if(b <= 0.f) throw Error("log(a,x): out of function's domain", Error::Math);
-                    res = std::log(b) / std::log(a);
+                    res = log(b) / log(a);
                 }
                 else if (str == MyString("log2"))
                 {
                     auto a = getOneToken();
                     if(a <= 0.f) throw Error("log2(x): out of function's domain", Error::Math);
-                    res = std::log2(a);
+                    res = log2(a);
                 }
                 else if(str == MyString("ln"))
                 {
                     auto a = getOneToken();
                     if(a <= 0.f) throw Error("ln(x): out of function's domain", Error::Math);
-                    res = std::log(a);
+                    res = log(a);
                 }
                 else if(str == MyString("lg"))
                 {
                     auto a = getOneToken();
                     if(a <= 0.f) throw Error("lg(x): out of function's domain", Error::Math);
-                    res = std::log10(a);
+                    res = log10(a);
                 }
                 else if(str == MyString("max"))
                 {
@@ -180,27 +179,27 @@ double countRPN(MyVector &expr)
                 else if(str == MyString("sqrt"))
                 {
                     auto a = getOneToken();
-                    res = std::sqrt(a);
+                    res = sqrt(a);
                 }
                 else if(str == MyString("sin"))
                 {
                     auto a = getOneToken();
-                    res = std::sin(a);
+                    res = sin(a);
                 }
                 else if(str == MyString("cos"))
                 {
                     auto a = getOneToken();
-                    res = std::cos(a);
+                    res = cos(a);
                 }
                 else if (str == MyString("tg"))
                 {
                     auto a = getOneToken();
-                    res = std::tan(a);
+                    res = tan(a);
                 }
                 else if (str == MyString("ctg"))
                 {
                     auto a = getOneToken();
-                    res = 1 / std::tan(a);
+                    res = 1 / tan(a);
                 }
                 else
                     throw Error("Unknown function!", Error::Syntax);

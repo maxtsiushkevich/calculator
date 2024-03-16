@@ -29,7 +29,8 @@ void tokenize(const MyString &expr, MyVector &tokens)
 
     for (int i = 0; i < expr.getLength(); i++)
     {
-        const char &s = expr.getString()[i];
+        char s = expr.getString()[i];
+//        std::cout << s << std::endl;
         // Определяем тип символа
         isDigit = isdigit(s);
         isLetter = isalpha(s);
@@ -104,21 +105,25 @@ void tokenize(const MyString &expr, MyVector &tokens)
 
         auto tokenize_Op_Paranth_Sep = [&]()
         {
+            char temp[2] = {s, '\0'}; // Create a null-terminated string from the character s
+            MyString tempStr(temp); // Convert the character to MyString
             if(isOp)
             {
                 // обработка unary negation
-                if(tokens.getSize() == 0 || tokens[tokens.getSize()-1].getType() == Token::L_PARANTHESIS)
-                    tokens.push_back({MyString{s}, Token::OPERATOR, Token::RIGHT});
-                else
-                    tokens.push_back({MyString{s}, Token::OPERATOR, Token::LEFT});
+                if(tokens.getSize() == 0 || tokens[tokens.getSize()-1].getType() == Token::L_PARANTHESIS) {
+                    tokens.push_back({tempStr, Token::OPERATOR, Token::RIGHT});
+                }
+                else {
+                    tokens.push_back({tempStr, Token::OPERATOR, Token::LEFT});
+                }
             }
             else if(isParanth)
             {
-                tokens.push_back({MyString{s}, isRParanth ? Token::R_PARANTHESIS : Token::L_PARANTHESIS});
+                tokens.push_back({tempStr, isRParanth ? Token::R_PARANTHESIS : Token::L_PARANTHESIS});
             }
             else if(isSep)
             {
-                tokens.push_back({MyString{s}, Token::SEPARATOR});
+                tokens.push_back({tempStr, Token::SEPARATOR});
             }
         };
 

@@ -1,5 +1,5 @@
 CXX=g++
-CXXFLAGS= -g -Iinclude -std=c++17
+CXXFLAGS= -g -Wall -Iinclude -std=c++17
 SRC=$(wildcard src/*.cpp)
 OBJ=$(SRC:.cpp=.o)
 TARGET=main

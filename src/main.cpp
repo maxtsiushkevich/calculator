@@ -10,6 +10,7 @@ int main()
 
 
     MyString expr = "log2(23)+(-2/(3.14))*(sqrt(0.1*10^(-3)/0.02))";
+//    MyString expr = "5+8*2";
     std::cout << "Expression: " << expr.getString() << std::endl;
 
     try
@@ -18,7 +19,6 @@ int main()
         for(int j = 0; j < tokensInfix.getSize(); j++)
         {
             Token i = tokensInfix[j];
-//            std::string type, asc;
             MyString type, asc;
             switch(i.getType())
             {
@@ -59,8 +59,8 @@ int main()
             }
             std::cout << i.getStr().getString() << "\t" << type.getString() << "\t" << asc.getString() << "\n";
         }
-//        shuntingYard(tokensInfix, tokensRPN);
-//        std::cout << "Answer: " << countRPN(tokensRPN) << "\n";
+        shuntingYard(tokensInfix, tokensRPN);
+        std::cout << "Answer: " << countRPN(tokensRPN) << "\n";
     }
     catch(Error &e)
     {

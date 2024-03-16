@@ -782,7 +782,6 @@ CMakeFiles/calculator.dir/src/main.cpp.o: /Users/max/Desktop/calculator-master/s
   /Users/max/Desktop/calculator-master/include/MyVector.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/stack \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/deque \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/format \
   /Users/max/Desktop/calculator-master/include/Tokenizer.hpp
 
 
@@ -2067,8 +2066,6 @@ CMakeFiles/calculator.dir/src/main.cpp.o: /Users/max/Desktop/calculator-master/s
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__utility/convert_to_integral.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__concepts/arithmetic.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/format:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_copy_n.h:
 

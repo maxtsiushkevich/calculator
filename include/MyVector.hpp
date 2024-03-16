@@ -1,29 +1,40 @@
 #ifndef VECTOR_H
 #define VECTOR_H
 
+#include "Token.hpp"
+
 class MyVector {
 private:
     Token* elements;
     size_t size;
-    size_t capacity;
+    size_t capacity; // New member to track capacity
 
 public:
-    MyVector() : size(0), capacity(0), elements(nullptr) {}
+    MyVector() : size(0), elements(nullptr), capacity(0) {}
 
     ~MyVector() {
-        clear();
-        operator delete(elements);
+        delete[] elements;
     }
 
-    MyVector(const MyVector& other) : size(other.size), capacity(other.capacity + 1) {
-        elements = new Token[other.capacity + 1];
-        copyElements(other.elements, other.size, elements);
+    MyVector(const MyVector& other) : size(other.size), capacity(other.capacity) {
+        elements = new Token[capacity];
+        for (size_t i = 0; i < size; ++i) {
+            elements[i] = other.elements[i];
+        }
     }
 
     void push_back(const Token& element) {
-        if (size >= capacity)
-            reserve(capacity + 1);
-        elements[size++] = Token(element);
+        if (size == capacity) {
+            size_t newCapacity = capacity == 0 ? 1 : capacity * 2; // Double the capacity
+            Token* newElements = new Token[newCapacity];
+            for (size_t i = 0; i < size; ++i) {
+                newElements[i] = elements[i];
+            }
+            delete[] elements;
+            elements = newElements;
+            capacity = newCapacity;
+        }
+        elements[size++] = element;
     }
 
     Token& operator[](size_t index) {
@@ -32,28 +43,6 @@ public:
 
     size_t getSize() const {
         return size;
-    }
-
-private:
-    void reserve(size_t newCapacity) {
-        Token* newElements = static_cast<Token*>(operator new(newCapacity * sizeof(Token)));
-        copyElements(elements, size, newElements);
-        delete elements;
-        elements = newElements;
-        capacity = newCapacity;
-    }
-
-    void clear() {
-        for (size_t i = 0; i < size; ++i) {
-            elements[i].~Token();
-        }
-        size = 0;
-    }
-
-    void copyElements(const Token* source, size_t count, Token* dest) {
-        for (size_t i = 0; i < count; ++i) {
-            dest[i] = source[i];
-        }
     }
 };
 
