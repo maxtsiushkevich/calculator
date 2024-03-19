@@ -782,8 +782,11 @@ CMakeFiles/calculator.dir/src/main.cpp.o: /Users/max/Desktop/calculator-master/s
   /Users/max/Desktop/calculator-master/include/MyVector.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/stack \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/deque \
+  /Users/max/Desktop/calculator-master/include/MyStack.hpp \
   /Users/max/Desktop/calculator-master/include/Tokenizer.hpp
 
+
+/Users/max/Desktop/calculator-master/include/MyStack.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/cstdarg:
 

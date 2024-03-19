@@ -6,7 +6,9 @@ int main()
 {
 //    std::vector<Token> tokensInfix, tokensRPN;
 //    std::vector<Token> tokensRPN;
-    MyVector tokensInfix, tokensRPN;
+
+//    MyVector tokensInfix, tokensRPN;
+    MyVector<Token> tokensInfix, tokensRPN;
 
 
     MyString expr = "log2(23)+(-2/(3.14))*(sqrt(0.1*10^(-3)/0.02))";

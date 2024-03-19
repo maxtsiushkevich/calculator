@@ -6,7 +6,7 @@ project(NAME)
 file(GLOB_RECURSE source_files
     "src/*.cpp"
 )
-add_executable(${NAME} ${source_files} include/MyVector.hpp)
+add_executable(${NAME} ${source_files} include/MyVector.hpp include/MyStack.hpp)
 
 target_include_directories(${NAME} PRIVATE 
     "include/"

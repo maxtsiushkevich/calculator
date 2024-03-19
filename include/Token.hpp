@@ -9,6 +9,7 @@
 
 #pragma pack(push, 1)
 
+
 class Token {
 public:
     // Тип

@@ -3,9 +3,11 @@
 
 #include "Token.hpp"
 
+template<typename T>
 class MyVector {
 private:
-    Token* elements;
+//    Token* elements;
+    T* elements;
     size_t size;
     size_t capacity; // New member to track capacity
 
@@ -17,16 +19,19 @@ public:
     }
 
     MyVector(const MyVector& other) : size(other.size), capacity(other.capacity) {
-        elements = new Token[capacity];
+//        elements = new Token[capacity];
+        elements = new T[capacity];
         for (size_t i = 0; i < size; ++i) {
             elements[i] = other.elements[i];
         }
     }
 
-    void push_back(const Token& element) {
+//    void push_back(const Token& element) {
+    void push_back(const T& element) {
         if (size == capacity) {
             size_t newCapacity = capacity == 0 ? 1 : capacity * 2; // Double the capacity
-            Token* newElements = new Token[newCapacity];
+//            Token* newElements = new Token[newCapacity];
+            T* newElements = new T[newCapacity];
             for (size_t i = 0; i < size; ++i) {
                 newElements[i] = elements[i];
             }
@@ -37,7 +42,8 @@ public:
         elements[size++] = element;
     }
 
-    Token& operator[](size_t index) {
+//    Token& operator[](size_t index) {
+    T& operator[](size_t index) {
         return elements[index];
     }
 

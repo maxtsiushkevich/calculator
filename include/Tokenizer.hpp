@@ -16,7 +16,8 @@ enum State : unsigned char
     S5  // Токенизация записанного числа/функции из буфера
 };
 
-void tokenize(const MyString &expr, MyVector &tokens)
+//void tokenize(const MyString &expr, MyVector &tokens)
+void tokenize(const MyString &expr, MyVector<Token> &tokens)
 {
     State state = S0;
 

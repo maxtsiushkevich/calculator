@@ -82,6 +82,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/max/Desktop/calculator-master/include/MyStack.hpp">
+			<Option target="calculator"/>
+		</Unit>
 		<Unit filename="/Users/max/Desktop/calculator-master/include/MyVector.hpp">
 			<Option target="calculator"/>
 		</Unit>
