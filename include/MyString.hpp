@@ -14,7 +14,10 @@ public:
 
     size_t getLength() const;
     const char *getString() const;
+
     void push_back(char c);
+    void push_back(char *s, int len);
+
     size_t find(char c) const;
     bool empty() const;
     void clear();
@@ -86,6 +89,23 @@ void MyString::push_back(char c) {
         delete[] string;
         string = temp;
         len++;
+    }
+}
+
+void MyString::push_back(char *s, int len) {
+    char *temp = new char[this->len + len + 1];
+
+    if (temp != nullptr)
+    {
+        if (this->string != nullptr)
+        {
+            strncpy(temp, string, len);
+            strcat(temp, s);
+        }
+        this->len += len;
+        temp[this->len + 1] = '\0';
+        delete[] string;
+        string = temp;
     }
 }
 
