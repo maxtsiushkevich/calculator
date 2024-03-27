@@ -22,6 +22,23 @@ public:
     bool empty() const;
     void clear();
 
+    MyString substr(size_t pos, size_t count) const {
+        if (pos >= len) {
+            return MyString(); // Возвращаем пустую строку, если позиция выходит за границы
+        }
+
+        count = (pos + count > len) ? (len - pos) : count; // Проверяем, чтобы не выйти за границы строки
+        MyString sub;
+        sub.len = count;
+        sub.string = new char[count + 1];
+        if (sub.string != nullptr) {
+            strncpy(sub.string, string + pos, count);
+            sub.string[count] = '\0';
+        }
+        return sub;
+    }
+
+
     bool operator==(const MyString &str) const;
     bool operator!=(const MyString &str) const;
     bool operator>(const MyString &str) const;
