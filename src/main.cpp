@@ -4,16 +4,11 @@
 
 int main()
 {
-//    std::vector<Token> tokensInfix, tokensRPN;
-//    std::vector<Token> tokensRPN;
-
-//    MyVector tokensInfix, tokensRPN;
     MyVector<Token> tokensInfix, tokensRPN;
-
-
     MyString expr = "log2(23)+(-2/(3.14))*(sqrt(0.1*10^(-3)/0.02))";
-//    MyString expr = "5+8*2";
     std::cout << "Expression: " << expr.getString() << std::endl;
+
+//    std::cout << expr.substr(5, 16).getString() << std::endl;
 
     try
     {

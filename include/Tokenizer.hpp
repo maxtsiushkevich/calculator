@@ -16,7 +16,6 @@ enum State : unsigned char
     S5  // Токенизация записанного числа/функции из буфера
 };
 
-//void tokenize(const MyString &expr, MyVector &tokens)
 void tokenize(const MyString &expr, MyVector<Token> &tokens)
 {
     State state = S0;
@@ -31,7 +30,6 @@ void tokenize(const MyString &expr, MyVector<Token> &tokens)
     for (int i = 0; i < expr.getLength(); i++)
     {
         char s = expr.getString()[i];
-//        std::cout << s << std::endl;
         // Определяем тип символа
         isDigit = isdigit(s);
         isLetter = isalpha(s);

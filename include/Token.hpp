@@ -47,8 +47,6 @@ public:
         return *this;
     }
 
-
-    // Приоритет
     short getPrecendance() const;
 
     const Type &getType() const { return type; }
